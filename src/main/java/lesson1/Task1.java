@@ -22,13 +22,13 @@ public class Task1 {
 
     /*
      *   Будут получены исключения:
-     *     - ArrayIndexOutOfBoundsException, если задать некорректные minIndexInclusive и maxIndexExcluding
+     *     - ArrayIndexOutOfBoundsException, если задать некорректные minIndex и maxIndex
      *     - NullPointerException, если передать null вместо numbers
      */
-    public static double calcAverage(int[] numbers, int minIndexInclusive, int maxIndexExcluding) {
+    public static double calcAverage(int[] numbers, int minIndex, int maxIndex) {
         int sum = 0;
 
-        for (int i = minIndexInclusive; i < maxIndexExcluding; i++) {
+        for (int i = minIndex; i < maxIndex; i++) {
             sum += numbers[i];
         }
 

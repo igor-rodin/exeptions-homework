@@ -16,14 +16,14 @@ public class Task3 {
         System.out.println(Arrays.toString(calcDifOf(firstArr, secondArr)));
     }
 
-    public static int[] calcDifOf(int[] firstArray, int[] secondArray) {
-        if (firstArray.length != secondArray.length) {
+    public static int[] calcDifOf(int[] first, int[] second) {
+        if (first.length != second.length) {
             throw new RuntimeException("Массивы должны быть одного размера");
         }
 
-        int[] result = new int[firstArray.length];
+        int[] result = new int[first.length];
         for (int i = 0; i < result.length; i++) {
-            result[i] = firstArray[i] - secondArray[i];
+            result[i] = first[i] - second[i];
         }
         return result;
     }
