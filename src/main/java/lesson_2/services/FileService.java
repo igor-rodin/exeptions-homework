@@ -11,12 +11,13 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class FileService {
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
     public List<Book> readJsonFileAsList(Path fileName) throws IOException {
         if (!Files.exists(fileName)) {
             throw new RuntimeException(String.format("Файл %s не существует", fileName));
         }
 
-        ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return  objectMapper.readValue(fileName.toFile(), new TypeReference<>() {});
     }

@@ -13,14 +13,12 @@ public class Task4 {
     }
 
     public static String getMessage() {
-        while (true) {
-            System.out.println("Введите сообщение: ");
-            String input = new Scanner(System.in).nextLine();
-            if (input.isBlank()) {
-                System.out.println("Пустые строки вводить нельзя");
-                throw new RuntimeException("Пустые строки вводить нельзя");
-            }
-            return input;
+        System.out.println("Введите сообщение: ");
+        String input = new Scanner(System.in).nextLine();
+        if (input.isBlank()) {
+            System.out.println("Пустые строки вводить нельзя");
+            throw new RuntimeException("Пустые строки вводить нельзя");
         }
+        return input;
     }
 }

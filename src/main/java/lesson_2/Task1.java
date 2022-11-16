@@ -46,20 +46,18 @@ public class Task1 {
 
 
     public static boolean isRational(String value) {
-        boolean canBeRational = true;
         int dotCounts = 0;
         for (int i = 0; i < value.length(); i++) {
             if (!Character.isDigit(value.charAt(i)) && value.charAt(i) != '.') {
-                canBeRational = false;
+                return false;
             }
             if (value.charAt(i) == '.') {
                 dotCounts++;
                 if (dotCounts > 1) {
-                    canBeRational = false;
-                    break;
+                    return false;
                 }
             }
         }
-        return canBeRational;
+        return true;
     }
 }
