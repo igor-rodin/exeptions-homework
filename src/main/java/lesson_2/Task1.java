@@ -14,6 +14,9 @@ public class Task1 {
         System.out.println("Вы ввели: " + number);
     }
 
+    /*
+     * Вариант без генерации исключений
+     */
     public static float getInput() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите дробное число: ");
@@ -27,6 +30,9 @@ public class Task1 {
         return Float.valueOf(value);
     }
 
+    /*
+     * Вариант с генерацией исключения
+     */
     public static float getInputWithTryCatch() {
         while (true) {
             try {
@@ -38,6 +44,7 @@ public class Task1 {
         }
     }
 
+
     public static boolean isRational(String value) {
         boolean canBeRational = true;
         int dotCounts = 0;
@@ -47,8 +54,12 @@ public class Task1 {
             }
             if (value.charAt(i) == '.') {
                 dotCounts++;
+                if (dotCounts > 1) {
+                    canBeRational = false;
+                    break;
+                }
             }
         }
-        return canBeRational && dotCounts <= 1;
+        return canBeRational;
     }
 }
