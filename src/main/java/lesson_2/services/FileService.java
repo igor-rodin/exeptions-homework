@@ -6,11 +6,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lesson_2.Book;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
 public class FileService {
     public List<Book> readJsonFileAsList(Path fileName) throws IOException {
+        if (!Files.exists(fileName)) {
+            throw new RuntimeException(String.format("Файл %s не существует", fileName));
+        }
+
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return  objectMapper.readValue(fileName.toFile(), new TypeReference<>() {});
