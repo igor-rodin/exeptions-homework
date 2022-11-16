@@ -10,10 +10,24 @@ import java.util.Scanner;
 public class Task1 {
     public static void main(String[] args) {
         float number = getInput();
+//        float number = getInputWithTryCatch();
         System.out.println("Вы ввели: " + number);
     }
 
     public static float getInput() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите дробное число: ");
+        String value = scanner.nextLine();
+
+        while (!isRational(value)) {
+            System.out.println("Неверный ввод -> " + value);
+            System.out.print("Введите дробное число: ");
+            value = scanner.nextLine();
+        }
+        return Float.valueOf(value);
+    }
+
+    public static float getInputWithTryCatch() {
         while (true) {
             try {
                 System.out.print("Введите дробное число: ");
@@ -22,5 +36,19 @@ public class Task1 {
                 System.out.println("Неверный ввод");
             }
         }
+    }
+
+    public static boolean isRational(String value) {
+        boolean canBeRational = true;
+        int dotCounts = 0;
+        for (int i = 0; i < value.length(); i++) {
+            if (!Character.isDigit(value.charAt(i)) && value.charAt(i) != '.') {
+                canBeRational = false;
+            }
+            if (value.charAt(i) == '.') {
+                dotCounts++;
+            }
+        }
+        return canBeRational && dotCounts <= 1;
     }
 }
