@@ -8,7 +8,7 @@ public class Task2 {
     public static final String LOGIN_OR_PASSWORD_IS_NULL_MESSAGE = "Логин и пароль не должны быть null";
 
     public static void main(String[] args) {
-        String login = "log234";
+        String login = "c3po";
         String password = "_$67876ghj";
         String confirmPassword = "_$67876ghj";
         System.out.println(logIn(login, password, confirmPassword));

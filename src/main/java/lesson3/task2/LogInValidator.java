@@ -12,8 +12,8 @@ public class LogInValidator {
             "-должен содержать только латинские буквы, цифры и знак подчеркивания.\n" +
             "-длина должна быть меньше 20 символов.";
     public static final String PASSWORD_NOT_EQUAL_MESSAGE = "Пароли не совпадают.";
-    public static final String VALID_LOGIN_PATTERN = "[\\d\\w]{1,19}";
-    public static final String VALID_PASSWORD_PATTERN = "[\\d\\w]{1,19}";
+    public static final String VALID_LOGIN_PATTERN = "\\w{1,19}";
+    public static final String VALID_PASSWORD_PATTERN = "\\w{1,19}";
 
     public static void validateLogin(final String login) throws WrongLoginException {
         if (!login.matches(VALID_LOGIN_PATTERN)) {
